@@ -1,7 +1,7 @@
-ion-button[color="dark"]{
+ion-button[color="primary"] {
     text-transform: initial;
 }
 
 ion-content {
-    --background: green;
+    --background: var(--ion-color-success);
 }

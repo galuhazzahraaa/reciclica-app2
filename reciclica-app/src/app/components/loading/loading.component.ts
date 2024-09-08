@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppState } from 'src/store/AppState';
 import { LoadingState } from 'src/store/loading/LoadingState';
+import { AppState } from 'src/store/AppState';
 
 @Component({
   selector: 'app-loading',
@@ -11,7 +11,7 @@ import { LoadingState } from 'src/store/loading/LoadingState';
 })
 export class LoadingComponent  implements OnInit {
 
-  loadingState$: Observable<LoadingState> = new Observable<LoadingState>(); 
+  loadingState$!: Observable<LoadingState>;
 
   constructor(private store: Store<AppState>) { }
 

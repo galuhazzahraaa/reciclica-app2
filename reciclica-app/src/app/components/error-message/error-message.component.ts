@@ -1,5 +1,6 @@
-import { Component, Input, input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-error-message',
@@ -8,21 +9,20 @@ import { FormGroup } from '@angular/forms';
 })
 export class ErrorMessageComponent  implements OnInit {
 
-  @Input() message: string ='';
-  // @Input() field: FormGroup ='';
+  @Input() message: string =''; 
+  @Input() field: AbstractControl | null = null;
   @Input() error: string ='';
-  @Input() field: any;
 
   constructor() { }
 
   ngOnInit() {}
 
-  shouldShowComponent() {
-    //form.get('email').touched && form.get('email').errors?.required
-    // if (this.field.touched && this.field.errors?.[this.error]){
-    //   return true;
-    // }
-    // return false;
+  shouldShowComponent(){
+    //form.get('email') && form.get('email')?.touched && form.get('email')?.errors?.['required']
+    if (this.field && this.field.touched && this.field.errors?.[this.error]) {
+      return true;
+    }
+    return false;
   }
 
 }

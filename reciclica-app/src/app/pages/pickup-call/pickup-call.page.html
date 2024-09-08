@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pickup call</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img src="https://asset.kompas.com/crops/UU_IzHXeOx6XBmYlY4wRb6nHTkY=/162x84:940x603/750x500/data/photo/2017/08/07/755494374.JPG"/>
+  <ion-card>
+    <ion-card-content>
+      <p>Address: street</p>
+      <p>Complement: 10</p>
+      <p>Neighborhood: neighborhood</p>
+      <p>Zip code: 11233</p>
+      <p>City name: city</p>
+      <p>State: state</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+    <ion-item lines="inset">
+      <ion-label position="floating">Notes</ion-label>
+      <ion-textarea></ion-textarea>
+    </ion-item>
+  </ion-list>
+  <ion-button color="success"size="full" (click)="newToPickupCall()">Create pick up call</ion-button>
+</ion-content>

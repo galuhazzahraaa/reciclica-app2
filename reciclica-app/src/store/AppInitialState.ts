@@ -1,6 +1,6 @@
 import { AppState } from "./AppState";
 
-export const AppInitialState: AppState ={
+export const AppInitialState: AppState = {
     loading: {
         show: false
     },
@@ -8,7 +8,12 @@ export const AppInitialState: AppState ={
         error: null,
         isLoggedIn: false,
         isLoggingIn: false,
+        isRecoveringPassword: false,
         isRecoveredPassword: false,
-        isRecoveringPassword: false
+    },
+    register: {
+        error: null,
+        isRegistering: false,
+        isRegistered: false
     }
 }

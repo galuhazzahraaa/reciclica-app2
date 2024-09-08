@@ -1,5 +1,7 @@
 {
-  "name": "pgpbl-app",
-  "integrations": {},
+  "name": "reciclica-app",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

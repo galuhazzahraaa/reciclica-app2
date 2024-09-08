@@ -1,7 +1,16 @@
 ion-content {
-    background: green;
+    --background: var(--ion-color-success);
 }
 
 ion-button {
     margin: 10px;
+}
+
+.form-item-error {
+border: 1px solid red;
+box-shadow: 0 0 5px red;
+}
+
+.form-item-error ion-input {
+border: none; /* Hapus border default jika diperlukan */
 }

@@ -1,26 +1,26 @@
 import { createReducer, on, Action } from "@ngrx/store";
+import { loginSuccess, loginFail, recoverPassword, recoverPasswordFail, recoverPasswordSuccess } from "./login.actions";
 import { LoginState } from "./LoginState";
-import { login, loginFail, loginSuccess, recoverPassword, recoverPasswordFail, recoverPasswordSuccess } from "./login.actions";
 import { AppInitialState } from "../AppInitialState";
+import { login } from "./login.actions";
 
 const initialState: LoginState = AppInitialState.login;
 
-const reducer = createReducer(initialState, 
+const reducer = createReducer(initialState,
     on(recoverPassword, currentState => {
         return {
             ...currentState,
-            error: null,
-            isRecoveredPassword: false,
-            isRecoveringPassword: true
-        } 
+            isRecoveringPassword: true,
+            isRecoveredPassword: false
+        };
     }),
     on(recoverPasswordSuccess, currentState => {
         return {
             ...currentState,
             error: null,
-            isRecoveredPassword: true,
-            isRecoveringPassword: false
-        } 
+            isRecoveringPassword: false,
+            isRecoveredPassword: true
+        };
     }),
     on(recoverPasswordFail, (currentState, action) => {
         return {
@@ -33,12 +33,10 @@ const reducer = createReducer(initialState,
     on(login, currentState => {
         return {
             ...currentState,
-            error: null,
-            isLoggedIn: false,
-            isLoggingIn: true
-        }
+            isLoggingIn: true,
+            isLoggedIn: false
+        };
     }),
-
     on(loginSuccess, currentState => {
         return {
             ...currentState,
@@ -53,9 +51,9 @@ const reducer = createReducer(initialState,
             isLoggedIn: false,
             isLoggingIn: false
         }
-    }),
+    })
 )
 
-export function loginReducer(state: LoginState | undefined, action: Action) {
-    return reducer(state, action)
+export function loginReducer(state: LoginState, action: Action<string>) {
+    return reducer(state, action);
 }
